@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Cosmos linework illustration</title>
+  <desc id="desc">Thin orbit, planet, and star linework for the About section background.</desc>
+  <g fill="none" stroke="#202020" stroke-linecap="round">
+    <ellipse cx="318" cy="320" rx="258" ry="142" stroke-opacity=".2" stroke-width="1.1" transform="rotate(-24 318 320)"/>
+    <ellipse cx="318" cy="322" rx="198" ry="108" stroke-opacity=".14" stroke-width="1" transform="rotate(17 318 322)"/>
+    <ellipse cx="156" cy="198" rx="122" ry="122" stroke-opacity=".14" stroke-width="1"/>
+    <ellipse cx="452" cy="472" rx="166" ry="166" stroke-opacity=".12" stroke-width="1"/>
+    <ellipse cx="392" cy="415" rx="112" ry="24" stroke-opacity=".18" stroke-width="1" transform="rotate(-16 392 415)"/>
+    <circle cx="392" cy="415" r="70" stroke-opacity=".08" stroke-width="1"/>
+  </g>
+  <g fill="#202020">
+    <circle cx="172" cy="202" r="10" opacity=".28"/>
+    <circle cx="505" cy="322" r="5.5" opacity=".22"/>
+    <circle cx="302" cy="485" r="2" opacity=".18"/>
+  </g>
+  <g fill="none" stroke="#202020" stroke-linecap="round">
+    <path d="M466 146h22M477 135v22" stroke-opacity=".28" stroke-width="1.4"/>
+    <path d="M104 452h18M113 443v18" stroke-opacity=".18" stroke-width="1.2"/>
+    <path d="M126 308h10M131 303v10" stroke-opacity=".16" stroke-width="1"/>
+  </g>
+</svg>
