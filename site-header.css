@@ -1,0 +1,187 @@
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/cera-pro-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/cera-pro-bold.otf") format("opentype");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.site-header {
+  --site-header-logo-width: clamp(139px, 13.5vw, 204px);
+  --site-header-logo-height: 35px;
+  --site-header-nav-gap: clamp(22px, 2.25vw, 42px);
+  --site-header-nav-size: clamp(12px, 1vw, 20px);
+  --site-header-spark-bleed: clamp(20px, 1.8vw, 34px);
+  position: fixed;
+  top: 16px;
+  left: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  gap: var(--grid-gap, var(--app-grid-col-gap, 10px));
+  width: 100%;
+  padding: 0 var(--page-pad, var(--app-grid-padding, 40px));
+  color: #f7edde;
+  font-family:
+    "Cera Pro", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei",
+    sans-serif;
+  mix-blend-mode: difference;
+}
+
+.site-header__logo {
+  grid-column: 1 / span 3;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  line-height: 1;
+}
+
+.site-header__logo img {
+  width: var(--site-header-logo-width);
+  height: auto;
+  max-height: var(--site-header-logo-height);
+  object-fit: contain;
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(95%)
+    sepia(10%)
+    saturate(421%)
+    hue-rotate(327deg)
+    brightness(104%)
+    contrast(94%);
+}
+
+.site-header__nav {
+  --site-header-line-x: 0px;
+  --site-header-line-width: 0px;
+  --site-header-line-opacity: 0;
+  grid-column: 8 / span 5;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--site-header-nav-gap);
+  font-size: var(--site-header-nav-size);
+  font-weight: 650;
+  line-height: 1;
+}
+
+.site-header a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header .site-header__link {
+  z-index: 1;
+  color: rgba(247, 237, 222, 0.56);
+  transition: color 0.2s ease;
+}
+
+.site-header .site-header__link:hover,
+.site-header .site-header__link:focus-visible,
+.site-header .site-header__link.is-active {
+  color: #f7edde;
+}
+
+.site-header__nav-line {
+  position: absolute;
+  top: calc(1em + 5px);
+  left: 0;
+  z-index: 0;
+  width: calc(var(--site-header-line-width) + var(--site-header-spark-bleed));
+  height: 18px;
+  opacity: var(--site-header-line-opacity);
+  pointer-events: none;
+  transform: translate3d(
+    calc(var(--site-header-line-x) - (var(--site-header-spark-bleed) / 2)),
+    0,
+    0
+  );
+  transition:
+    opacity 0.2s ease,
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.36s ease;
+}
+
+.site-header__nav-line::before,
+.site-header__nav-line::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.site-header__nav-line::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 189, 119, 0.24) 24%,
+      rgba(255, 244, 223, 0.95) 50%,
+      rgba(255, 189, 119, 0.28) 76%,
+      transparent 100%
+    );
+  box-shadow:
+    0 0 8px rgba(255, 224, 183, 0.72),
+    0 0 24px rgba(255, 156, 79, 0.42);
+  transform: translateY(-50%);
+}
+
+.site-header__nav-line::after {
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle,
+      #fff4df 0 18%,
+      rgba(255, 244, 223, 0.62) 31%,
+      transparent 70%
+    );
+  box-shadow:
+    0 0 8px rgba(255, 244, 223, 0.86),
+    0 0 18px rgba(255, 189, 119, 0.56);
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    --site-header-logo-width: clamp(115px, 33vw, 134px);
+    --site-header-logo-height: 26px;
+    --site-header-nav-gap: clamp(14px, 3.75vw, 26px);
+    --site-header-nav-size: clamp(12px, 1vw, 20px);
+    --site-header-spark-bleed: 18px;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+  }
+
+  .site-header__logo {
+    grid-column: 1;
+  }
+
+  .site-header__nav {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__nav-line {
+    transition-duration: 0.36s !important;
+  }
+}
