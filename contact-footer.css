@@ -392,15 +392,17 @@
 .title-flare {
   --flare-box: clamp(32.4px, 2.835vw, 49.5px);
   --flare-ray-width: calc(var(--flare-box) * 1.2);
-  --flare-core-size: calc(var(--flare-box) * 0.25);
+  --flare-core-size: calc(var(--flare-box) * 0.2);
   --flare-halo-size: calc(var(--flare-box) * 0.82);
+  --flare-scale: 0.8;
   --flare-y: 0.03em;
   position: relative;
   flex: 0 0 auto;
   display: block;
   width: var(--flare-box);
   height: var(--flare-box);
-  transform: translateY(var(--flare-y));
+  transform: translateY(var(--flare-y)) scale(var(--flare-scale));
+  transform-origin: center;
   pointer-events: none;
 }
 
