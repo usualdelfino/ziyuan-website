@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/*
+ * Cross-document route transition.
+ * Rollback: remove this stylesheet link from the eight production pages,
+ * then delete this file. No page scripts or existing animations depend on it.
+ */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 680ms;
+  animation-timing-function: ease-in;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: route-page-reveal 680ms ease-in both;
+}
+
+@keyframes route-page-reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms;
+    animation-delay: 0s;
+  }
+}
